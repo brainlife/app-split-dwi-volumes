@@ -1,0 +1,6 @@
+#!/bin/bash
+#
+
+[ ! -f dwi/dwi.nii.gz ] && time singularity exec -e docker://brainlife/amico:2.1b ./run.py
+
+#[ ! -f dwi/dwi.bvecs ] && echo "failed" && exit 1 || echo "complete" && exit 0
