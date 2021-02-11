@@ -67,11 +67,11 @@ def main():
 
 	with open(os.path.join('dwi','dwi.bvecs'),'w') as bvecs_to_write:
 		if np.size(out_bvecs) == 3:
-			bvecs_to_write.write(str(out_bvecs[0]))
+			bvecs_to_write.write(str(out_bvecs[0]) + ' ')
 			bvecs_to_write.write('\n')
-			bvecs_to_write.write(str(out_bvecs[1]))
+			bvecs_to_write.write(str(out_bvecs[1]) + ' ')
 			bvecs_to_write.write('\n')
-			bvecs_to_write.write(str(out_bvecs[2]))
+			bvecs_to_write.write(str(out_bvecs[2]) + ' ')
 		else:
 			for dimensions in range(np.shape(out_bvecs)[1]):
 				if dimensions != 2:
