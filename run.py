@@ -34,11 +34,11 @@ def main():
 	if startVol == endVol:
 		# generate output structures based on requested start and end volumes
 		print("setting up output data based on requested volumes")
-		out_dwi = dwi[:,:,:,startVol]
+		out_dwi = dwi[:,:,:,startVol:startVol+1]
 
-		out_bvals = bvals[startVol]
+		out_bvals = bvals[startVol:startVol+1]
 
-		out_bvecs = bvecs[startVol,:]
+		out_bvecs = bvecs[startVol:startVol+1,:]
 		print("setting up output data based on requested volumes complete")
 	else:
 		# generate output structures based on requested start and end volumes
@@ -56,37 +56,27 @@ def main():
 	del(dwi,affine,out_dwi)
 
 	with open(os.path.join('dwi','dwi.bvals'),'w') as bvals_to_write:
-		if np.size(out_bvals) == 1:
-			bvals_to_write.write(str(np.int(out_bvals)))
-		else:
-			for item in range(len(out_bvals)):
-				if item != len(out_bvals[:]) - 1:
-					bvals_to_write.write(str(np.int(out_bvals[item])) + ' ')
-				else:
-					bvals_to_write.write(str(np.int(out_bvals[item])))
+		for item in range(len(out_bvals)):
+			if item != len(out_bvals[:]) - 1:
+				bvals_to_write.write(str(np.int(out_bvals[item])) + ' ')
+			else:
+				bvals_to_write.write(str(np.int(out_bvals[item])))
 
 	with open(os.path.join('dwi','dwi.bvecs'),'w') as bvecs_to_write:
-		if np.size(out_bvecs) == 3:
-			bvecs_to_write.write(str(out_bvecs[0]) + ' ')
-			bvecs_to_write.write('\n')
-			bvecs_to_write.write(str(out_bvecs[1]) + ' ')
-			bvecs_to_write.write('\n')
-			bvecs_to_write.write(str(out_bvecs[2]) + ' ')
-		else:
-			for dimensions in range(np.shape(out_bvecs)[1]):
-				if dimensions != 2:
-					for item in range(len(out_bvecs[:,dimensions])):
-						if item != len(out_bvecs[:,dimensions]) - 1:
-							bvecs_to_write.write(str(out_bvecs[item,dimensions]) + ' ')
-						else:
-							bvecs_to_write.write(str(out_bvecs[item,dimensions]))
-					bvecs_to_write.write('\n')
-				else:
-					for item in range(len(out_bvecs[:,dimensions])):
-						if item != len(out_bvecs[:,dimensions]) - 1:
-							bvecs_to_write.write(str(out_bvecs[item,dimensions]) + ' ')
-						else:
-							bvecs_to_write.write(str(out_bvecs[item,dimensions]))
+		for dimensions in range(np.shape(out_bvecs)[1]):
+			if dimensions != 2:
+				for item in range(len(out_bvecs[:,dimensions])):
+					if item != len(out_bvecs[:,dimensions]) - 1:
+						bvecs_to_write.write(str(out_bvecs[item,dimensions]) + ' ')
+					else:
+						bvecs_to_write.write(str(out_bvecs[item,dimensions]))
+				bvecs_to_write.write('\n')
+			else:
+				for item in range(len(out_bvecs[:,dimensions])):
+					if item != len(out_bvecs[:,dimensions]) - 1:
+						bvecs_to_write.write(str(out_bvecs[item,dimensions]) + ' ')
+					else:
+						bvecs_to_write.write(str(out_bvecs[item,dimensions]))
 	print("saving data complete. app finished")
 
 if __name__ == "__main__":
