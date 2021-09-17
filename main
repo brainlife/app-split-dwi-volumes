@@ -1,10 +1,11 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=4,vmem=60gb,walltime=0:15:00
+#PBS -l nodes=1:ppn=4,vmem=32gb,walltime=1:00:00
 #PBS -N app-split-dwi-volumes
 
 set -x
 set -e
 
-[ ! -f dwi/dwi.nii.gz ] && time singularity exec -e docker://brainlife/amico:2.1b ./run.py
+# [ ! -f dwi/dwi.nii.gz ] && time singularity exec -e docker://brainlife/amico:2.1b ./run.py
+time singularity exec -e docker://brainlife/mrtrix3:3.0.2 ./run.sh
 
-[ ! -f dwi/dwi.bvecs ] && echo "failed" && exit 1 || echo "complete" && exit 0
+[ ! -f output/dwi.bvecs ] && echo "failed" && exit 1 || echo "complete" && exit 0
