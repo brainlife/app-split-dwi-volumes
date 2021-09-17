@@ -10,4 +10,4 @@ outdir="output"
 [ ! -d ${outdir} ] && mkdir -p ${outdir}
 
 # extract volumes
-[ ! -f ${outdir}/dwi.nii.gz ] && mrconvert -fslgrad ${bvecs} ${bvals} -export_grad_fsl ${outdir}/dwi.bvecs ${outdir}/dwi.bvals -coords 3 ${vols} ${dwi} ${outdir}/dwi.nii.gz -force -nthreads 4
+[ ! -f ${outdir}/dwi.nii.gz ] && mrconvert -fslgrad ${bvecs} ${bvals} -export_grad_fsl ${outdir}/dwi.bvecs ${outdir}/dwi.bvals -coord 3 ${vols} ${dwi} ${outdir}/dwi.nii.gz -force -nthreads 4
