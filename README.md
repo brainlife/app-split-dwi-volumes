@@ -1,5 +1,5 @@
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
-[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-brainlife.app.575-blue.svg)](https://doi.org/10.25663/brainlife.app.575)
+[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-brainlife.app.371-blue.svg)](https://doi.org/10.25663/brainlife.app.371)
 
 # Extract DWI volumes of choice
 
@@ -35,7 +35,7 @@ We kindly ask that you cite the following articles when publishing papers and co
 
 ### On Brainlife.io
 
-You can submit this App online at [https://doi.org/10.25663/brainlife.app.575](https://doi.org/10.25663/brainlife.app.575) via the 'Execute' tab.
+You can submit this App online at [https://doi.org/10.25663/brainlife.app.371](https://doi.org/10.25663/brainlife.app.371) via the 'Execute' tab.
 
 ### Running Locally (on your machine)
 
