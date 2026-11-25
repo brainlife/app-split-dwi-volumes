@@ -10,7 +10,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" alt="MIT license"></a>
 </p>
 
-## 🧠 At a glance
+## At a glance
 
 <!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
 
@@ -20,26 +20,26 @@ Runs mrconvert -coord 3 with the requested (0-indexed) volume list and exports t
 
 | | |
 |---|---|
-| 📥 **Inputs** | `neuro/dwi` |
-| 📤 **Outputs** | `neuro/dwi` |
-| 🐳 **Container** | `brainlife/mrtrix3:3.0.2` |
-| ⚙️ **Resources** | 4 CPUs · 32 GB memory · 1 h walltime |
-| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.575](https://doi.org/10.25663/brainlife.app.575) |
+| **Inputs** | `neuro/dwi` |
+| **Outputs** | `neuro/dwi` |
+| **Container** | `brainlife/mrtrix3:3.0.2` |
+| **Resources** | 4 CPUs · 32 GB memory · 1 h walltime |
+| **Run it** | [doi.org/10.25663/brainlife.app.575](https://doi.org/10.25663/brainlife.app.575) |
 
-#### 📥 Inputs
+#### Inputs
 
 | Input | Datatype | Required | Description |
 |---|---|---|---|
 | `dwi` | `neuro/dwi` | yes | DWI image with bvals and bvecs. |
 
-#### 📤 Outputs
+#### Outputs
 
 | Output | Datatype | Description |
 |---|---|---|
 | `output` | `neuro/dwi` | DWI containing only the selected volumes, with matching bvals and bvecs. |
 
 <details>
-<summary><b>⚙️ Parameters</b> (1)</summary>
+<summary><b>Parameters</b> (1)</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
@@ -49,7 +49,7 @@ Runs mrconvert -coord 3 with the requested (0-indexed) volume list and exports t
 
 <!-- brainlife-app:end -->
 
-## 🏷️ Versions on brainlife.io
+## Versions on brainlife.io
 
 Each version is a separate App on brainlife.io, built from its own branch of this repository.
 
@@ -58,9 +58,9 @@ Each version is a separate App on brainlife.io, built from its own branch of thi
 | Extract DWI volumes of choice | MRtrix3 3.0.2 | [`mrtrix3-v1.0`](https://github.com/brainlife/app-split-dwi-volumes/tree/mrtrix3-v1.0) | [doi:10.25663/brainlife.app.575](https://doi.org/10.25663/brainlife.app.575) | current |
 | Extract DWI volumes of choice - Deprecated | DIPY (start and end volume) | [`v1.0`](https://github.com/brainlife/app-split-dwi-volumes/tree/v1.0) | [doi:10.25663/brainlife.app.371](https://doi.org/10.25663/brainlife.app.371) | deprecated |
 
-## 🚀 Running the App
+## Running the App
 
-### ☁️ On brainlife.io
+### On brainlife.io
 
 Open the App at [doi.org/10.25663/brainlife.app.575](https://doi.org/10.25663/brainlife.app.575), choose a `neuro/dwi` dataset from your project, list the volumes you want in `vols`, and press **Execute**. The App writes a `neuro/dwi` dataset with only those volumes to your project. Use it to drop or keep specific volumes or shells before further processing.
 
@@ -75,7 +75,7 @@ The volumes to keep, passed to `mrconvert -coord 3`. **Indexing starts at 0**: t
 
 The deprecated version (`v1.0`) instead took a `start_volume` and an `end_volume` (counting from 1) and extracted that range with DIPY.
 
-### 💻 Locally
+### Locally
 
 You need [Singularity/Apptainer](https://apptainer.org/) and [`jq`](https://jqlang.github.io/jq/). The App runs in the `brainlife/mrtrix3:3.0.2` container.
 
@@ -97,7 +97,7 @@ You need [Singularity/Apptainer](https://apptainer.org/) and [`jq`](https://jqla
    ./main
    ```
 
-## 📦 Outputs
+## Outputs
 
 ```text
 output/
@@ -106,11 +106,11 @@ output/
 └── dwi.bvals    matching b-values (FSL format)
 ```
 
-## 🩺 Troubleshooting
+## Troubleshooting
 
 - **`failed`**: `output/dwi.bvecs` was not written. Check that `vols` uses commas and `start:step:end` ranges (not spaces), that the indices start at 0 and are within the number of volumes, and that the bvals and bvecs match the DWI.
 
-## 📚 Citing
+## Citing
 
 > [!TIP]
 > If you use this App in your work, please cite the App, the software it builds on and brainlife.io (below). GitHub's **Cite this repository** button gives the App citation in APA and BibTeX.
@@ -121,13 +121,13 @@ output/
 - Jenkinson et al. FSL. *NeuroImage* 62:782-790 (2012). [doi:10.1016/j.neuroimage.2011.09.015](https://doi.org/10.1016/j.neuroimage.2011.09.015)
 - Hayashi S, Caron BA, Heinsfeld AS, et al. brainlife.io: a decentralized and open-source cloud platform to support neuroscience research. *Nature Methods* 21:809–813 (2024). [doi:10.1038/s41592-024-02237-2](https://doi.org/10.1038/s41592-024-02237-2)
 
-## 👥 Authors
+## Authors
 
 - Brad Caron
 
 **Contributors:** Soichi Hayashi
 
-## 💰 Funding
+## Funding
 
 [![Wellcome-226486/Z/22/Z](https://img.shields.io/badge/Wellcome-226486%2FZ%2F22%2FZ-purple.svg)](https://wellcome.org/)
 [![NIH-NINDS-U24NS140384](https://img.shields.io/badge/NIH_NINDS-U24NS140384-green.svg)](https://reporter.nih.gov/project-details/11261037)
@@ -146,6 +146,6 @@ output/
 
 <sub>brainlife.io is publicly funded, and acknowledging that support helps keep it running. This App was developed with support from Wellcome, the U.S. National Institutes of Health (including the BRAIN Initiative BRAIN CONNECTS program: The Axonal Projectome EXchange, U24NS140384, and the Center for Mesoscale Connectomics, UM1NS132207) and the U.S. National Science Foundation.</sub>
 
-## ⚖️ License
+## License
 
 MIT. MRtrix3 is distributed under the [Mozilla Public License 2.0](https://www.mrtrix.org/).
