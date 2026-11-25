@@ -3,6 +3,30 @@
 
 # Extract DWI volumes of choice
 
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+**Extracts selected volumes from a DWI image, with matching bvals and bvecs, using MRtrix3 mrconvert.**
+
+Runs mrconvert -coord 3 with the requested (0-indexed) volume list and exports the corresponding gradient table as FSL bvals/bvecs. Use it to drop or keep specific volumes or shells before further processing.
+
+Run it on brainlife.io: [https://doi.org/10.25663/brainlife.app.575](https://doi.org/10.25663/brainlife.app.575)
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `dwi` | `neuro/dwi` | yes | DWI image with bvals and bvecs. |
+
+| Output | Datatype | Description |
+|---|---|---|
+| `output` | `neuro/dwi` | DWI containing only the selected volumes, with matching bvals and bvecs. |
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `vols` | string |  | This field is intended to specify the volumes of interest. IMPORTANT: this uses 0 indexing. So the first volume is 0, and the remaining volumes are N-1. If a selection of non-consecutive volumes are desired, list the volume numbers and include commas between them (ex. 0,2,4,24,99) If a series of volumes is desired, use a start:step:end format, where "start" is the starting volume, "step" is the number of steps before the next volume selected, and "end" is the ending volume. For example, if you want every volume from the first volume to the 40th volume, do 0:1:39 You can also use the keyword "end" to specify that you want all volumes from a starting volume to the end of the nifti (ex. 24:1:end would be the 25th volume and then all the remaining volumes). This should also follow the start:step:end format. These can be combined. For example, if a user wants the 2nd, 4th, 40th-60th, and 70th to end, you would specify this field as '1,3,39:1:59,69:1:end" |
+
+Runtime: container `brainlife/mrtrix3:3.0.2`; 4 CPUs; 32 GB memory; 1 h walltime.
+
+<!-- brainlife-app:end -->
+
 This app will extract volumes from a diffusion MRI volume based on user input using MRTrix3.
 
 ### Authors
